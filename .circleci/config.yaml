@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/justin-shepard.net
+    docker:
+      - image: circleci/node:8.9.1
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: yarn install --frozen-lockfile
+      - run:
+          name: build
+          command: yarn webpack
