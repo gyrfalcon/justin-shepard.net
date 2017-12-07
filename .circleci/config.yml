@@ -18,9 +18,6 @@ jobs:
       - run:
           name: build
           command: yarn webpack
-  deploy:
-    working_directory: ~/justin-shepard.net
-    steps:
       - run:
           name: install aws
           command: pip install awscli --upgrade --user
