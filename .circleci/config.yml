@@ -6,9 +6,15 @@ jobs:
       - image: circleci/node:8.9.1
     steps:
       - checkout
+      - restore_cache:
+        key: modules-cache-{{ checksum "yarn.lock" }}
       - run:
           name: install
           command: yarn install --frozen-lockfile
+      - save_cache:
+        key: modules-cache-{{ checksum "yarn.lock" }}
+        paths:
+          - ./node_modules
       - run:
           name: build
           command: yarn webpack
