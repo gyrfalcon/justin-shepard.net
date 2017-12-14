@@ -25,7 +25,7 @@ jobs:
     steps:
       - run:
           name: install aws
-          command: pip install awscli --upgrade --user
+          command: sudo pip install awscli --upgrade --user
       - run:
           name: s3 sync
           command: aws s3 sync dist/ s3://justin-shepard.net/
