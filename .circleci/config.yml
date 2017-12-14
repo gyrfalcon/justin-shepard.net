@@ -18,9 +18,22 @@ jobs:
       - run:
           name: build
           command: yarn webpack
+  deploy:
+    working_directory: ~/justin-shepard.net
+    docker:
+      - image: circleci/python:3.6.1
+    steps:
       - run:
           name: install aws
           command: pip install awscli --upgrade --user
       - run:
           name: s3 sync
           command: aws s3 sync dist/ s3://justin-shepard.net/
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          - requires:
+              - build
