@@ -9,18 +9,19 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: './main/src/index.js',
-  output: {
-    path: path.resolve('dist'),
-    filename: 'bundle.js',
+  devServer: {
+    port: 8181,
   },
+  mode: 'production',
   module: {
-    loaders: [
+    rules: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
     ],
   },
-  plugins: [HtmlWebpackPluginConfig],
-  devServer: {
-    port: 8181,
+  output: {
+    path: path.resolve('dist'),
+    filename: 'bundle.js',
   },
+  plugins: [HtmlWebpackPluginConfig],
 }
