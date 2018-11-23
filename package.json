@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "lint": "eslint --ext .js,.jsx src"
+    "lint": "eslint --ext .js,.jsx src",
+    "test:coverage": "flow-coverage-report"
   },
   "devDependencies": {
     "@babel/core": "7.1.6",
@@ -24,6 +25,7 @@
     "eslint-plugin-react": "7.11.1",
     "eslint-plugin-standard": "4.0.0",
     "flow-bin": "0.86.0",
+    "flow-coverage-report": "0.6.0",
     "html-webpack-plugin": "3.2.0",
     "path": "0.12.7",
     "webpack": "4.26.0",
@@ -33,5 +35,18 @@
   "dependencies": {
     "react": "16.6.3",
     "react-dom": "16.6.3"
+  },
+  "flow-coverage-report": {
+    "concurrentFiles": 5,
+    "globIncludePatterns": [
+      "src/**/*.js",
+      "src/**/*.jsx"
+    ],
+    "outputDir": "reports/flow",
+    "threshold": 100,
+    "reportTypes": [
+      "html",
+      "text"
+    ]
   }
 }
