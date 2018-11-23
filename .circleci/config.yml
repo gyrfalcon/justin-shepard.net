@@ -42,7 +42,9 @@ jobs:
           command: pip install awscli --upgrade --user
       - run:
           name: s3 sync
-          command: ~/.local/bin/aws s3 sync dist/ s3://justin-shepard.net/
+          command: |
+            ~/.local/bin/aws s3 sync --exclude "*.html" --exact-timestamps --cache-control min-age=0,max-age=43200 dist/ s3://justin-shepard.net/
+            ~/.local/bin/aws s3 sync --exclude "*" --include "*.html" --exact-timestamps --cache-control max-age=0,no-cache,no-store,must-revalidate dist/ s3://justin-shepard.net/
 workflows:
   version: 2
   build-and-deploy:
