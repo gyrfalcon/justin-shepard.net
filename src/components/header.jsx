@@ -3,6 +3,7 @@ import * as React from 'react'
 
 type HeaderProps = {
   children: React.Node,
+  test: boolean,
 }
 
 export default function Header (props: HeaderProps) {
