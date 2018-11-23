@@ -19,6 +19,9 @@ jobs:
           name: test
           command: yarn flow
       - run:
+          name: lint
+          command: yarn lint
+      - run:
           name: build
           command: yarn webpack
       - persist_to_workspace:

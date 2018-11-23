@@ -38,5 +38,14 @@ module.exports = {
     'no-var': 'error',
     'prefer-const': 'error',
     'prefer-arrow-callback': 'error',
+  },
+  settings: {
+    react: {
+      createClass: "createReactClass",
+      pragma: "React",
+      version: "16.6",
+      flowVersion: "0.86.0",
+    },
+    propWrapperFunctions: [ "forbidExtraProps" ],
   }
 }
