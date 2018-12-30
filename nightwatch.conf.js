@@ -16,6 +16,9 @@ module.exports = {
         path: 'reports/screenshots',
       },
       silent: false,
+      webdriver: {
+        default_path_prefix: '/wb/hub',
+      },
     },
     selenium_server: {
       selenium: {
