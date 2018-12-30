@@ -1,4 +1,8 @@
-// @flow
+// @flow strict
+import * as chromedriver from 'chromedriver'
+
+const externalSelenium = process.env.EXTERNAL_SELENIUM === 'true'
+
 module.exports = {
   test_settings: {
     default: {
@@ -17,12 +21,10 @@ module.exports = {
       },
       silent: true,
       webdriver: {
-        default_path_prefix: '/wd/hub',
-      },
-    },
-    selenium_server: {
-      selenium: {
-        start_process: false,
+        default_path_prefix: externalSelenium ? '/wd/hub' : '',
+        start_process: !externalSelenium,
+        server_path: chromedriver.path,
+        cli_args: ['--port=4444'],
       },
     },
   },

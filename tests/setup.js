@@ -11,6 +11,8 @@ import {
 import {
   closeSession,
   createSession,
+  startWebDriver,
+  stopWebDriver,
 } from 'nightwatch-api'
 import express from 'express'
 
@@ -44,6 +46,7 @@ const stopStaticServer = (server: Server): Promise<void> => {
 }
 
 BeforeAll(async () => {
+  await startWebDriver('default')
   staticServer = await startStaticServer()
 })
 
@@ -57,4 +60,5 @@ After(async () => {
 
 AfterAll(async () => {
   await stopStaticServer(staticServer)
+  await stopWebDriver()
 })
