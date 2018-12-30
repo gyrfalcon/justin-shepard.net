@@ -17,7 +17,7 @@ module.exports = {
       },
       silent: false,
       webdriver: {
-        default_path_prefix: '/wb/hub',
+        default_path_prefix: '/wd/hub',
       },
     },
     selenium_server: {
