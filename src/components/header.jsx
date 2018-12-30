@@ -7,7 +7,7 @@ type HeaderProps = {
 
 export default function Header (props: HeaderProps) {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div data-id="header" style={{ textAlign: 'center' }}>
       <h1>{props.children}</h1>
     </div>
   )

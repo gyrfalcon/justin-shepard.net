@@ -22,11 +22,12 @@ jobs:
             yarn lint
             yarn flow
             yarn test:coverage
+            yarn test:acceptance
       - store_artifacts:
           path: reports/flow
       - run:
           name: build
-          command: yarn webpack
+          command: yarn build
       - persist_to_workspace:
           root: .
           paths: dist
