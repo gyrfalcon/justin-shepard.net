@@ -40,17 +40,19 @@ jobs:
           command: java -jar selenium-server-standalone-3.141.59.jar -log selenium.log
           background: true
       - run:
-          name: make cucumber output directory # this is because cucumber is stupid about the output path
-          command: mkdir -p reports/cucumber
+          name: make report directories
+          command: |
+            mkdir -p reports/cucumber
+            mkdir -p reports/flow
       - run:
           name: test
           command: |
-            yarn lint
-            yarn flow
+            yarn ci:lint
+            yarn ci:flow
             yarn test:coverage
             yarn test:acceptance
       - store_artifacts:
-          path: reports/flow
+          path: reports/coverage
       - store_artifacts:
           path: reports/screenshots
       - store_test_results:

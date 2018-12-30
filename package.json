@@ -8,6 +8,8 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "lint": "eslint --ext .js,.jsx src",
+    "ci:lint": "eslint --format junit --output-file reports/eslint/eslint.xml --ext .js,.jsx src",
+    "ci:flow": "flow --json | yarn --silent flow-junit-transformer > reports/flow/flow.xml",
     "test:acceptance": "cucumber-js --exit --format json:reports/cucumber/tests.cucumber --require-module @babel/register --require tests tests/features",
     "test:coverage": "flow-coverage-report"
   },
@@ -19,6 +21,7 @@
     "@babel/preset-react": "7.0.0",
     "@babel/register": "7.0.0",
     "@babel/runtime": "7.2.0",
+    "@kironeducation/flow-junit-transformer": "0.3.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.4",
     "chromedriver": "2.45.0",
@@ -54,11 +57,12 @@
       "src/**/*.jsx",
       "tests/**/*.js"
     ],
-    "outputDir": "reports/flow",
+    "outputDir": "reports/coverage",
     "threshold": 100,
     "reportTypes": [
       "html",
-      "text"
+      "text",
+      "json"
     ]
   }
 }

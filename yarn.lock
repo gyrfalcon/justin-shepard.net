@@ -751,6 +751,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@kironeducation/flow-junit-transformer@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@kironeducation/flow-junit-transformer/-/flow-junit-transformer-0.3.0.tgz#ea1e57b01d7096012254a3d3dafc8afc7d97b8fe"
+  integrity sha512-MmI3w2bjg/E2bp7WOvIWJU+wyIf3smcMp3V+IRK6wLR+7qB0NG58vWNQ6iv3sbWtweBn+4iy7n6OoG1CTD078w==
+
 "@octokit/rest@^15.2.6":
   version "15.18.0"
   resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-15.18.0.tgz#e6de702b57dec94c71e806f1cff0ecb9725b3054"
