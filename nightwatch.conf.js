@@ -12,11 +12,12 @@ module.exports = {
           args: ['headless', 'disable-gpu'],
         },
       },
-      output: false,
+      output: true,
       screenshots: {
         enabled: true,
         path: 'reports/screenshots',
       },
+      silent: false,
       webdriver: {
         start_process: true,
         server_path: chromedriver.path,
