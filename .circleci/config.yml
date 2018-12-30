@@ -28,6 +28,8 @@ jobs:
             yarn test:acceptance
       - store_artifacts:
           path: reports/flow
+      - store_artifacts:
+          path: reports/screenshots
       - persist_to_workspace:
           root: .
           paths: dist

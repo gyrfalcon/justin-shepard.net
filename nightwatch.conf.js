@@ -13,6 +13,10 @@ module.exports = {
         },
       },
       output: false,
+      screenshots: {
+        enabled: true,
+        path: 'reports/screenshots',
+      },
       webdriver: {
         start_process: true,
         server_path: chromedriver.path,
