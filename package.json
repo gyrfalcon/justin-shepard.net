@@ -8,7 +8,7 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "lint": "eslint --ext .js,.jsx src",
-    "test:acceptance": "cucumber-js --exit --format json:reports/cucumber/results.json --require-module @babel/register --require tests tests/features",
+    "test:acceptance": "cucumber-js --exit --format json:reports/cucumber/tests.cucumber --require-module @babel/register --require tests tests/features",
     "test:coverage": "flow-coverage-report"
   },
   "devDependencies": {
