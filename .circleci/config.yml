@@ -50,6 +50,8 @@ jobs:
           path: reports/flow
       - store_artifacts:
           path: reports/screenshots
+      - store_test_results:
+          path: reports/cucumber
   deploy:
     working_directory: ~/justin-shepard.net
     docker:
