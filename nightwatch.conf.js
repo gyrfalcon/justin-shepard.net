@@ -10,12 +10,12 @@ module.exports = {
           args: ['headless', 'disable-gpu'],
         },
       },
-      output: true,
+      output: false,
       screenshots: {
         enabled: true,
         path: 'reports/screenshots',
       },
-      silent: false,
+      silent: true,
       webdriver: {
         default_path_prefix: '/wd/hub',
       },
