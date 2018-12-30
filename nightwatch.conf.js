@@ -16,7 +16,9 @@ module.exports = {
         path: 'reports/screenshots',
       },
       silent: false,
-      webdriver: {
+    },
+    selenium_server: {
+      selenium: {
         start_process: false,
       },
     },
