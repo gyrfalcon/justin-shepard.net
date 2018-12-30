@@ -3,11 +3,8 @@ jobs:
   build:
     working_directory: ~/justin-shepard.net
     docker:
-      - image: circleci/node:8.11.2-browsers
+      - image: circleci/node:8.11.2
     steps:
-      - run:
-          name: info
-          command: google-chrome --version
       - checkout
       - restore_cache:
           key: modules-cache-{{ checksum "yarn.lock" }}
@@ -22,6 +19,21 @@ jobs:
       - run:
           name: build
           command: yarn build
+      - persist_to_workspace:
+          root: .
+          paths: dist
+  test:
+    working_directory: ~/justin-shepard.net
+    docker:
+      - image: circleci/node:8.11.2-browsers
+    steps:
+      - run:
+          name: download selenium
+          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      - run:
+          name: start selenium
+          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+          background: true
       - run:
           name: test
           command: |
@@ -33,9 +45,6 @@ jobs:
           path: reports/flow
       - store_artifacts:
           path: reports/screenshots
-      - persist_to_workspace:
-          root: .
-          paths: dist
   deploy:
     working_directory: ~/justin-shepard.net
     docker:
@@ -56,6 +65,9 @@ workflows:
   build-and-deploy:
     jobs:
       - build
+      - test:
+          requires:
+            build
       - deploy:
           requires:
-            - build
+            - test

@@ -1,6 +1,4 @@
 // @flow
-import * as chromedriver from 'chromedriver'
-
 module.exports = {
   test_settings: {
     default: {
@@ -19,9 +17,7 @@ module.exports = {
       },
       silent: false,
       webdriver: {
-        start_process: true,
-        server_path: chromedriver.path,
-        cli_args: ['--port=4444'],
+        start_process: false,
       },
     },
   },
