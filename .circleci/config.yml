@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: circleci/node:8.11.2-browsers
     steps:
+      - run:
+          name: info
+          command: google-chrome --version
       - checkout
       - restore_cache:
           key: modules-cache-{{ checksum "yarn.lock" }}
