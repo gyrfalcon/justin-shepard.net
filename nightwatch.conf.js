@@ -2,6 +2,7 @@
 import * as chromedriver from 'chromedriver'
 
 const externalSelenium = process.env.EXTERNAL_SELENIUM === 'true'
+const webdriverPort = externalSelenium ? 4444 : 9515
 
 module.exports = {
   test_settings: {
@@ -21,10 +22,11 @@ module.exports = {
       },
       silent: true,
       webdriver: {
+        cli_args: [`--port=${webdriverPort}`],
         default_path_prefix: externalSelenium ? '/wd/hub' : '',
-        start_process: !externalSelenium,
+        port: webdriverPort,
         server_path: chromedriver.path,
-        cli_args: ['--port=4444'],
+        start_process: !externalSelenium,
       },
     },
   },
