@@ -48,7 +48,6 @@ jobs:
           name: test
           command: |
             yarn ci:lint
-            yarn ci:flow
             yarn test:coverage
             yarn test:acceptance
       - store_artifacts:
