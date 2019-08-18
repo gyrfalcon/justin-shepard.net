@@ -61,7 +61,8 @@
     "threshold": 100,
     "reportTypes": [
       "html",
-      "text"
+      "text",
+      "json"
     ]
   }
 }
