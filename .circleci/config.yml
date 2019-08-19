@@ -33,8 +33,8 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: install yarn
-          command: curl -o- -L https://yarnpkg.com/install.sh | bash
+          name: stop flow server
+          command: yarn flow stop
       - run:
           name: download selenium
           command: curl -O http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
