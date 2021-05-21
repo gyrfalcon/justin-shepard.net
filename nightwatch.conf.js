@@ -17,12 +17,12 @@ const config: NightwatchConfig = {
           args: ['headless', 'disable-gpu'],
         },
       },
-      output: false,
+      output: true,
       screenshots: {
         enabled: true,
         path: 'reports/screenshots',
       },
-      silent: true,
+      silent: false,
       webdriver: {
         cli_args: [`--port=${webdriverPort}`],
         default_path_prefix: externalSelenium ? '/wd/hub' : '',

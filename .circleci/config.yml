@@ -51,6 +51,8 @@ jobs:
             yarn test:coverage
             yarn test:acceptance
       - store_artifacts:
+          path: selenium.log
+      - store_artifacts:
           path: reports/coverage
       - store_artifacts:
           path: reports/screenshots
