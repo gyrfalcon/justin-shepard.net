@@ -1,5 +1,5 @@
 // @flow strict
-import { When } from 'cucumber'
+import { When } from '@cucumber/cucumber'
 import { client } from 'nightwatch-api'
 
 When(/^I open the justin-shepard.net homepage$/, async () => {

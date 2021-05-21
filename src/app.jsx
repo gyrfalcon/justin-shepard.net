@@ -4,10 +4,10 @@ import Header from './components/header.jsx'
 
 type AppProps = {}
 
-export default function App (props: AppProps) {
+const App = (props: AppProps): React.Node => {
   return (
-    <div>
-      <Header>justin-shepard.net</Header>
-    </div>
+    <Header>justin-shepard.net</Header>
   )
 }
+
+export default App

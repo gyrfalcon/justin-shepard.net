@@ -1,4 +1,4 @@
-declare module 'cucumber' {
+declare module '@cucumber/cucumber' {
   declare export var Before: (() => Promise<*>) => void
   declare export var BeforeAll: (() => Promise<*>) => void
   declare export var After: (() => Promise<*>) => void

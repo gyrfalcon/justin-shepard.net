@@ -4,7 +4,7 @@ import {
   AfterAll,
   Before,
   BeforeAll,
-} from 'cucumber'
+} from '@cucumber/cucumber'
 import {
   closeSession,
   createSession,

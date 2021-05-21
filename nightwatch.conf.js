@@ -1,10 +1,12 @@
 // @flow strict
 import * as chromedriver from 'chromedriver'
 
-const externalSelenium = process.env.EXTERNAL_SELENIUM === 'true'
-const webdriverPort = externalSelenium ? 4444 : 9515
+const externalSelenium: bool = process.env.EXTERNAL_SELENIUM === 'true'
+const webdriverPort: number = externalSelenium ? 4444 : 9515
 
-module.exports = {
+type NightwatchConfig = {}
+
+const config: NightwatchConfig = {
   test_settings: {
     default: {
       desiredCapabilities: {
@@ -31,3 +33,5 @@ module.exports = {
     },
   },
 }
+
+module.exports = config
