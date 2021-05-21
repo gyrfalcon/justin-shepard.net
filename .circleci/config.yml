@@ -33,10 +33,6 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: start selenium
-          command: java -jar /usr/local/bin/selenium.jar -log selenium.log
-          background: true
-      - run:
           name: make report directories
           command: |
             mkdir -p reports/cucumber
@@ -47,8 +43,6 @@ jobs:
             yarn ci:lint
             yarn test:coverage
             yarn test:acceptance
-      - store_artifacts:
-          path: selenium.log
       - store_artifacts:
           path: reports/coverage
       - store_artifacts:
