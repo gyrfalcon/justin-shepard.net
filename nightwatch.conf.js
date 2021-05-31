@@ -1,8 +1,7 @@
 // @flow strict
 import * as chromedriver from 'chromedriver'
 
-const externalSelenium: bool = process.env.EXTERNAL_SELENIUM === 'true'
-const webdriverPort: number = externalSelenium ? 4444 : 9515
+const webdriverPort: number = 9515
 
 type NightwatchConfig = {}
 
@@ -17,18 +16,18 @@ const config: NightwatchConfig = {
           args: ['headless', 'disable-gpu'],
         },
       },
-      output: true,
+      output: false,
       screenshots: {
         enabled: true,
         path: 'reports/screenshots',
       },
-      silent: false,
+      silent: true,
       webdriver: {
         cli_args: [`--port=${webdriverPort}`],
-        default_path_prefix: externalSelenium ? '/wd/hub' : '',
+        default_path_prefix: '',
         port: webdriverPort,
         server_path: chromedriver.path,
-        start_process: !externalSelenium,
+        start_process: true,
       },
     },
   },
