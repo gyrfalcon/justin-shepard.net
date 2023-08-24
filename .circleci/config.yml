@@ -13,9 +13,7 @@ jobs:
           command: yarn install --frozen-lockfile
       - save_cache:
           key: modules-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
-            - ~/.cache/yarn
+          paths: node_modules
       - run:
           name: build
           command: yarn build
