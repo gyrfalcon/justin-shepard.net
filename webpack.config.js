@@ -14,8 +14,7 @@ module.exports = {
   },
   mode: 'production',
   module: {
-    rules: [
-    ],
+    rules: [],
   },
   output: {
     path: path.resolve('dist'),

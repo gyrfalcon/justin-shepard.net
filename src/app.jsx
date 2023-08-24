@@ -5,9 +5,7 @@ import Header from './components/header.jsx'
 type AppProps = {}
 
 const App = (props: AppProps): React.Node => {
-  return (
-    <Header>justin-shepard.net</Header>
-  )
+  return <Header>justin-shepard.net</Header>
 }
 
 export default App
