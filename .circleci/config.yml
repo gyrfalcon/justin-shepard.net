@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/justin-shepard.net
@@ -7,13 +7,17 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-modules-cache-{{ checksum "yarn.lock" }}
+          name: restore dependencies cache
+          key: v1-dependencies-cache-{{ checksum "yarn.lock" }}
       - run:
           name: install
-          command: yarn install --frozen-lockfile
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
-          key: v1-modules-cache-{{ checksum "yarn.lock" }}
-          paths: node_modules
+          name: save dependencies cache
+          key: v1-dependencies-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - ~/.cache/yarn
       - run:
           name: build
           command: yarn build
@@ -27,13 +31,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-modules-cache-{{ checksum "yarn.lock" }}
+          name: restore dependencies cache
+          key: v1-dependencies-cache-{{ checksum "yarn.lock" }}
       - attach_workspace:
           at: .
       - run:
           name: test
           command: |
-            # yarn ci:lint
+            yarn ci:lint
             yarn playwright test
       - store_test_results:
           path: reports
