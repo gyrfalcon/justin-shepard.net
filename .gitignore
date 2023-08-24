@@ -4,6 +4,7 @@ node_modules/
 # Build Output
 dist/
 reports/
+.parcel-cache/
 
 # Misc
 *.log
