@@ -33,22 +33,10 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: make report directories
-          command: |
-            mkdir -p reports/cucumber
-            mkdir -p reports/flow
-      - run:
           name: test
           command: |
             yarn ci:lint
-            yarn test:coverage
             yarn test:acceptance
-      - store_artifacts:
-          path: reports/coverage
-      - store_artifacts:
-          path: reports/screenshots
-      - store_test_results:
-          path: reports
   deploy:
     working_directory: ~/justin-shepard.net
     docker:
