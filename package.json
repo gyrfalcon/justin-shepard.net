@@ -10,10 +10,10 @@
     "build": "parcel build",
     "start": "parcel",
     "lint": "eslint --ext .js,.jsx src tests",
-    "ci:lint": "eslint --format junit --output-file reports/eslint/eslint.xml --ext .js,.jsx src tests",
-    "test:acceptance": "echo NIY && exit 0"
+    "ci:lint": "eslint --format junit --output-file reports/eslint/eslint.xml --ext .ts,.tsx src tests"
   },
   "devDependencies": {
+    "@playwright/test": "1.37.1",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@typescript-eslint/eslint-plugin": "6.4.1",
@@ -64,7 +64,8 @@
       }
     },
     "ignorePatterns": [
-      "webpack.config.js"
+      "webpack.config.js",
+      "playwright.config.js"
     ]
   }
 }

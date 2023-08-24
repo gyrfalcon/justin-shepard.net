@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/justin-shepard.net
     docker:
-      - image: circleci/node:18
+      - image: cimg/node:18
     steps:
       - checkout
       - restore_cache:
@@ -25,7 +25,7 @@ jobs:
   test:
     working_directory: ~/justin-shepard.net
     docker:
-      - image: circleci/node:18-browsers
+      - image: mcr.microsoft.com/playwright:v1.37.0-jammy
     steps:
       - checkout
       - restore_cache:
@@ -36,11 +36,13 @@ jobs:
           name: test
           command: |
             yarn ci:lint
-            yarn test:acceptance
+            yarn playwright test
+      - store_test_results:
+          path: reports
   deploy:
     working_directory: ~/justin-shepard.net
     docker:
-      - image: circleci/python:3.6.1
+      - image: cimg/python:3.8.4
     steps:
       - attach_workspace:
           at: .
