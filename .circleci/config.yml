@@ -1,22 +1,16 @@
 version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+  aws: circleci/aws-cli@4.0.0
+
 jobs:
   build:
     working_directory: ~/justin-shepard.net
-    docker:
-      - image: cimg/node:18.17.1
+    executor: node/default
     steps:
       - checkout
-      - restore_cache:
-          name: Restore dependencies cache
-          key: v1-dependencies-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install
-          command: npm ci
-      - save_cache:
-          name: Save dependencies cache
-          key: v1-dependencies-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
+      - node/install
       - run:
           name: Build
           command: npm run build
@@ -29,9 +23,7 @@ jobs:
       - image: mcr.microsoft.com/playwright:v1.37.0-jammy
     steps:
       - checkout
-      - restore_cache:
-          name: Restore dependencies cache
-          key: v1-dependencies-cache-{{ checksum "package-lock.json" }}
+      - node/install
       - attach_workspace:
           at: .
       - run:
@@ -43,19 +35,15 @@ jobs:
           path: reports
   deploy:
     working_directory: ~/justin-shepard.net
-    docker:
-      - image: cimg/python:3.8.4
+    executor: aws/default
     steps:
       - attach_workspace:
           at: .
       - run:
-          name: Install AWS
-          command: pip install awscli --upgrade --user
-      - run:
           name: Sync to s3 bucket
           command: |
-            ~/.local/bin/aws s3 sync --exclude "*.html" --exact-timestamps --cache-control min-age=0,max-age=43200 dist/ s3://justin-shepard.net/
-            ~/.local/bin/aws s3 sync --exclude "*" --include "*.html" --exact-timestamps --cache-control max-age=0,no-cache,no-store,must-revalidate dist/ s3://justin-shepard.net/
+            aws s3 sync --exclude "*.html" --exact-timestamps --cache-control min-age=0,max-age=43200 dist/ s3://justin-shepard.net/
+            aws s3 sync --exclude "*" --include "*.html" --exact-timestamps --cache-control max-age=0,no-cache,no-store,must-revalidate dist/ s3://justin-shepard.net/
 workflows:
   build-and-deploy:
     jobs:
