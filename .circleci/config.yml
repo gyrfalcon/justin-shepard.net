@@ -23,7 +23,7 @@ jobs:
       - image: mcr.microsoft.com/playwright:v1.37.0-jammy
     steps:
       - checkout
-      - node/install
+      - node/install-packages
       - attach_workspace:
           at: .
       - run:
