@@ -10,7 +10,7 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - node/install
+      - node/install-packages
       - run:
           name: Build
           command: npm run build
