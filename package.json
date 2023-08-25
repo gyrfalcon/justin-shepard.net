@@ -10,7 +10,8 @@
     "build": "parcel build",
     "start": "parcel",
     "lint": "eslint --ext .js,.jsx src tests",
-    "ci:lint": "eslint --format junit --output-file reports/eslint/eslint.xml --ext .ts,.tsx src tests"
+    "ci:lint": "eslint --format junit --output-file reports/eslint/eslint.xml --ext .ts,.tsx src tests",
+    "test:acceptance": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "1.37.1",

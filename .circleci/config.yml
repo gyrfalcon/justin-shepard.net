@@ -8,19 +8,18 @@ jobs:
       - checkout
       - restore_cache:
           name: Restore dependencies cache
-          key: v1-dependencies-cache-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install
-          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+          command: npm ci
       - save_cache:
           name: Save dependencies cache
-          key: v1-dependencies-cache-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-            - ~/.cache/yarn
       - run:
           name: Build
-          command: yarn build
+          command: npm run build
       - persist_to_workspace:
           root: .
           paths: dist
@@ -32,15 +31,14 @@ jobs:
       - checkout
       - restore_cache:
           name: Restore dependencies cache
-          key: v1-dependencies-cache-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-cache-{{ checksum "package-lock.json" }}
       - attach_workspace:
           at: .
       - run:
           name: Test
           command: |
-            yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-            yarn ci:lint
-            yarn playwright test
+            npm run ci:lint
+            npm run test:acceptance
       - store_test_results:
           path: reports
   deploy:
@@ -59,7 +57,6 @@ jobs:
             ~/.local/bin/aws s3 sync --exclude "*.html" --exact-timestamps --cache-control min-age=0,max-age=43200 dist/ s3://justin-shepard.net/
             ~/.local/bin/aws s3 sync --exclude "*" --include "*.html" --exact-timestamps --cache-control max-age=0,no-cache,no-store,must-revalidate dist/ s3://justin-shepard.net/
 workflows:
-  version: 2.1
   build-and-deploy:
     jobs:
       - build
