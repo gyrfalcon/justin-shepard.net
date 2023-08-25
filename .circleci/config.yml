@@ -39,6 +39,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - aws/install
       - run:
           name: Sync to s3 bucket
           command: |
