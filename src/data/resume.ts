@@ -111,7 +111,7 @@ export const schema: JSONSchemaType<Resume> = {
       type: 'array',
       items: {
         type: 'object',
-        discriminator: 'type',
+        discriminator: { propertyName: 'type' },
         required: ['type'],
         oneOf: [fullTimeSchema, consultingSchema],
       },
