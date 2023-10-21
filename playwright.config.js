@@ -17,7 +17,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   // Reporter to use
-  reporter: process.env.CI ? [['junit', { outputFile: 'reports/playwright/results.xml' }]]: 'html',
+  reporter: [['junit', { outputFile: 'reports/playwright/results.xml' }]],
 
   use: {
     // Base URL to use in actions like `await page.goto('/')`.

@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { type Token, parse, hash } from './markdown.helpers'
+import { type Token, parse } from './markdown.helpers'
+import { hash } from '../../helpers/string.helpers'
 
 interface Props {
   children: string

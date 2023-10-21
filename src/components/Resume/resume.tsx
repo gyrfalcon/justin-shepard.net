@@ -4,6 +4,7 @@ import { type Resume } from '../../data/resume'
 import { getResumeData } from './resume.hooks'
 import Buzzwords from './buzzwords'
 import Markdown from '../Markdown'
+import Experience from './experience'
 
 const Resume = () => {
   const [ resume, setResume ] = React.useState<Resume | undefined>()
@@ -18,6 +19,7 @@ const Resume = () => {
         <ul data-testid='professional-summary'>
           {resume.professionalSummary.map((e, i) => <li key={i}><Markdown>{e}</Markdown></li>)}
         </ul>
+        <Experience experience={resume.experience} />
         <Buzzwords buzzwords={resume.buzzwords} />
       </div>
     )

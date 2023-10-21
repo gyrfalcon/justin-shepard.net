@@ -75,3 +75,63 @@ test.describe('professional summary', () => {
     await expect(strongElements.nth(0)).toHaveText('third thing')
   })
 })
+
+test.describe('experience', () => {
+  test('has header', async ({ page }) => {
+    const firstJobDetails = page.getByTestId('experience')
+    const header = firstJobDetails.locator('h2')
+
+    await expect(header).toHaveText('Experience')
+  })
+
+  test('jobs are in order', async ({ page }) => {
+    const firstJobDetails = page.getByTestId('experience')
+    const jobHeaders = firstJobDetails.locator('h3')
+
+    await expect(jobHeaders).toHaveCount(5)
+    await expect(jobHeaders.nth(0)).toHaveText('Some Other Company, Whoville, OR (2010 - Present)')
+    await expect(jobHeaders.nth(1)).toHaveText('Another Consulting Company, Whoville, OR (2010)')
+    await expect(jobHeaders.nth(2)).toHaveText('Other Company, Anytown, DE (2005 - 2010)')
+    await expect(jobHeaders.nth(3)).toHaveText('Consulting, Somewhere, DE (2000 - 2005)')
+    await expect(jobHeaders.nth(4)).toHaveText('First Job, Anytown, OH (1990 - 2000)')
+  })
+
+  test('full time job has all details', async ({ page }) => {
+    const firstJobDetails = page.getByTestId('company-first-job')
+    const header = firstJobDetails.locator('h3')
+    const summary = firstJobDetails.getByTestId('company-first-job-summary')
+    const roles = firstJobDetails.getByTestId('company-first-job-roles')
+    const roleHeaders = roles.locator('h4')
+    const roleSummaries = roles.locator('ul')
+
+    await expect(header).toHaveText('First Job, Anytown, OH (1990 - 2000)')
+    await expect(summary).toHaveText('Company does some stuff.')
+    await expect(roleHeaders).toHaveCount(2)
+    await expect(roleHeaders.nth(0)).toHaveText('Senior Guy (1995 - 2000)')
+    await expect(roleHeaders.nth(1)).toHaveText('Junior Guy (1990 - 1995)')
+    await expect(roleSummaries).toHaveCount(2)
+    await expect(roleSummaries.nth(0).getByRole('listitem')).toHaveCount(2)
+    await expect(roleSummaries.nth(0).getByRole('listitem').nth(0)).toHaveText('Did more things')
+    await expect(roleSummaries.nth(0).getByRole('listitem').nth(1)).toHaveText('Helped other people do things')
+    await expect(roleSummaries.nth(1).getByRole('listitem')).toHaveCount(2)
+    await expect(roleSummaries.nth(1).getByRole('listitem').nth(0)).toHaveText('Did a thing')
+    await expect(roleSummaries.nth(1).getByRole('listitem').nth(1)).toHaveText('Did another thing')
+  })
+
+  test('consulting job has all details', async ({ page }) => {
+    const firstJobDetails = page.getByTestId('company-consulting')
+    const header = firstJobDetails.locator('h3')
+    const summary = firstJobDetails.getByTestId('company-consulting-summary')
+    const roles = firstJobDetails.getByTestId('company-consulting-contracts')
+    const contractHeaders = roles.locator('h4')
+    const roleSummaries = roles.locator('ul')
+
+    await expect(header).toHaveText('Consulting, Somewhere, DE (2000 - 2005)')
+    await expect(summary).toHaveText('Company that hires out people to other companies.')
+    await expect(contractHeaders).toHaveCount(1)
+    await expect(contractHeaders.nth(0)).toHaveText('Other Company, Anytown, DE \u2013 Contractor (2000 - 2005)')
+    await expect(roleSummaries).toHaveCount(1)
+    await expect(roleSummaries.nth(0).getByRole('listitem')).toHaveCount(1)
+    await expect(roleSummaries.nth(0).getByRole('listitem').nth(0)).toHaveText('Do work')
+  })
+})

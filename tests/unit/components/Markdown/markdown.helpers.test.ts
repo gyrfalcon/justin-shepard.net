@@ -1,4 +1,4 @@
-import { hash, parse } from '../../../../src/components/Markdown/markdown.helpers'
+import { parse } from '../../../../src/components/Markdown/markdown.helpers'
 
 
 describe('mardown parser', () => {
@@ -89,13 +89,5 @@ describe('mardown parser', () => {
     expect(results[0]).toStrictEqual({ type: 'plain', value: 'Some ' })
     expect(results[1]).toStrictEqual({ type: 'strong', value: { type: 'emphasis', value: 'enchilada text' } })
     expect(results[2]).toStrictEqual({ type: 'plain', value: ' inside plain text' })
-  })
-})
-
-describe('hash function', () => {
-  test('hashes a string', () => {
-    const value = hash('string')
-
-    expect(value).toBe(-891985903)
   })
 })

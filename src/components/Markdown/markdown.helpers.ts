@@ -69,10 +69,3 @@ export const parse = (text: string): Token[] => {
 
   return tokens
 }
-
-export const hash = (toHash: string) => {
-  return toHash.split('').reduce((a, b) =>  {
-    a = ((a << 5) - a) + b.charCodeAt(0);
-    return a & a;
-  }, 0)
-}

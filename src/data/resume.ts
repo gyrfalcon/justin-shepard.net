@@ -9,7 +9,7 @@ interface BaseCompany {
   endYear?: number
 }
 
-interface Role {
+export interface Role {
   roleName: string
   beginYear: number
   endYear?: number
@@ -49,13 +49,12 @@ const fullTimeSchema: JSONSchemaType<FullTime> = {
   additionalProperties: false,
 }
 
-interface Contract {
+export interface Contract {
   companyName: string
   city: string
   state: string
   roles: Role[]
 }
-
 
 const contractSchmea: JSONSchemaType<Contract> = {
   type: 'object',
@@ -74,7 +73,6 @@ export interface Consulting extends BaseCompany {
   contracts: Contract[]
 }
 
-
 const consultingSchema: JSONSchemaType<Consulting> = {
   type: 'object',
   properties: {
@@ -91,7 +89,7 @@ const consultingSchema: JSONSchemaType<Consulting> = {
   additionalProperties: false,
 }
 
-type Company = FullTime | Consulting
+export type Company = FullTime | Consulting
 
 export interface Resume {
   name: string

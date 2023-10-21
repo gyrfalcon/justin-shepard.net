@@ -6,9 +6,136 @@
     "Worked **hard** for the **money**.",
     "A **third thing**."
   ],
-  "experience": [],
+  "experience": [
+    {
+      "companyName": "Another Consulting Company",
+      "companySummary": "More hiring out to other companies.",
+      "type": "consulting",
+      "city": "Whoville",
+      "state": "OR",
+      "beginYear": 2010,
+      "endYear": 2010,
+      "contracts": [
+        {
+          "companyName": "Some Other Company",
+          "city": "Whoville",
+          "state": "OR",
+          "roles": [
+            {
+              "roleName": "Contractor",
+              "beginYear": 2010,
+              "endYear": 2010,
+              "roleSummary": [
+                "Do work"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "companyName": "Other Company",
+      "companySummary": "Does capitalism.",
+      "type": "full-time",
+      "city": "Anytown",
+      "state": "DE",
+      "beginYear": 2005,
+      "endYear": 2010,
+      "roles": [
+        {
+          "roleName": "Senior Developer Guy",
+          "beginYear": 2005,
+          "endYear": 2010,
+          "roleSummary": [
+            "Did computer things",
+            "Mentored people in doing things"
+          ]
+        }
+      ]
+    },
+    {
+      "companyName": "Consulting",
+      "companySummary": "Company that hires out people to other companies.",
+      "type": "consulting",
+      "city": "Somewhere",
+      "state": "DE",
+      "beginYear": 2000,
+      "endYear": 2005,
+      "contracts": [
+        {
+          "companyName": "Other Company",
+          "city": "Anytown",
+          "state": "DE",
+          "roles": [
+            {
+              "roleName": "Contractor",
+              "beginYear": 2000,
+              "endYear": 2005,
+              "roleSummary": [
+                "Do work"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "companyName": "Some Other Company",
+      "companySummary": "Does computer things.",
+      "type": "full-time",
+      "city": "Whoville",
+      "state": "OR",
+      "beginYear": 2010,
+      "roles": [
+        {
+          "roleName": "Senior Developer Guy",
+          "beginYear": 2010,
+          "roleSummary": [
+            "Did computery things"
+          ]
+        }
+      ]
+    },
+    {
+      "companyName": "First Job",
+      "companySummary": "Company does some stuff.",
+      "type": "full-time",
+      "city": "Anytown",
+      "state": "OH",
+      "beginYear": 1990,
+      "endYear": 2000,
+      "roles": [
+        {
+          "roleName": "Junior Guy",
+          "beginYear": 1990,
+          "endYear": 1995,
+          "roleSummary": [
+            "Did a thing",
+            "Did another thing"
+          ]
+        },
+        {
+          "roleName": "Senior Guy",
+          "beginYear": 1995,
+          "endYear": 2000,
+          "roleSummary": [
+            "Did more things",
+            "Helped other people do things"
+          ]
+        }
+      ]
+    }
+  ],
   "buzzwords": {
-    "Programming Languages": ["Java", "JavaScript/TypeScript", "Groovy"],
-    "Operating Systems": ["macOS", "Windows", "Linux/Unix"]
+    "Programming Languages": [
+      "Java",
+      "JavaScript/TypeScript",
+      "Groovy"
+    ],
+    "Operating Systems": [
+      "macOS",
+      "Windows",
+      "Linux/Unix"
+    ]
   }
 }
