@@ -6,6 +6,7 @@ dist/
 reports/
 playwright-report/
 .parcel-cache/
+coverage/
 
 # Misc
 *.log

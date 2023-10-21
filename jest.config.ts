@@ -13,7 +13,6 @@ const config: Config = {
       statements: 100,
     },
   },
-  coverageDirectory: 'reports/coverage',
   reporters: [
     'default',
     [ "jest-junit", { outputDirectory: 'reports/jest' } ],
