@@ -3,5 +3,8 @@
   "email": "foo@example.com",
   "professionalSummary": [],
   "experience": [],
-  "buzzwords": {}
+  "buzzwords": {
+    "Programming Languages": ["Java", "JavaScript/TypeScript", "Groovy"],
+    "Operating Systems": ["macOS", "Windows", "Linux/Unix"]
+  }
 }
