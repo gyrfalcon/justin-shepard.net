@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-
 interface CategoryProps {
   name: string
   words: string[]

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Resume } from '../../data/resume'
+import { type Resume } from '../../data/resume'
 import { getResumeData } from './resume.hooks'
 import Buzzwords from './buzzwords'
 import Markdown from '../Markdown'

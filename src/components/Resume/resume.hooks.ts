@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { Resume, schema } from '../../data/resume'
-import axios, { AxiosResponse } from 'axios'
+import { type Resume, schema } from '../../data/resume'
+import axios, { type AxiosResponse } from 'axios'
 import Ajv from 'ajv'
 
 const validator = new Ajv({ discriminator: true }).compile(schema)
