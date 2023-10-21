@@ -15,8 +15,6 @@ interface BuzzwordProps {
 }
 
 const Buzzwords = ({ buzzwords }: BuzzwordProps) => {
-  console.log(buzzwords)
-
   return (
     <div data-testid='buzzwords'>
       <h2>Buzzwords</h2>

@@ -41,3 +41,37 @@ test.describe('buzzwords', () => {
     await expect(paragraphs.nth(1).getByRole('strong')).toHaveText('Operating Systems:')
   })
 })
+
+test.describe('professional summary', () => {
+  test('is a list', async ({ page }) => {
+    const professionalSummary = page.getByTestId('professional-summary')
+      .and(page.getByRole('list'))
+
+    await expect(professionalSummary).toBeVisible()
+  })
+
+  test('has pretty text', async ({ page }) => {
+    const professionalSummary = page.getByTestId('professional-summary')
+      .and(page.getByRole('list'))
+    const listItems = professionalSummary.getByRole('listitem')
+
+    await expect(listItems).toHaveCount(3)
+    await expect(listItems.nth(0)).toHaveText('Fooed the bar for baz years.')
+    let strongElements = listItems.nth(0).getByRole('strong')
+    await expect(strongElements).toHaveCount(3)
+    await expect(strongElements.nth(0)).toHaveText('Fooed')
+    await expect(strongElements.nth(1)).toHaveText('bar')
+    await expect(strongElements.nth(2)).toHaveText('baz')
+
+    await expect(listItems.nth(1)).toHaveText('Worked hard for the money.')
+    strongElements = listItems.nth(1).getByRole('strong')
+    await expect(strongElements).toHaveCount(2)
+    await expect(strongElements.nth(0)).toHaveText('hard')
+    await expect(strongElements.nth(1)).toHaveText('money')
+
+    await expect(listItems.nth(2)).toHaveText('A third thing.')
+    strongElements = listItems.nth(2).getByRole('strong')
+    await expect(strongElements).toHaveCount(1)
+    await expect(strongElements.nth(0)).toHaveText('third thing')
+  })
+})

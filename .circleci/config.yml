@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.1.0
-  aws: circleci/aws-cli@4.0.0
+  aws: circleci/aws-cli@4.1.1
 
 jobs:
   build:
@@ -30,6 +30,7 @@ jobs:
           name: Test
           command: |
             npm run ci:lint
+            npm test
             npm run test:acceptance
       - store_test_results:
           path: reports

@@ -1,7 +1,11 @@
 {
   "name": "Justin Shepard",
   "email": "foo@example.com",
-  "professionalSummary": [],
+  "professionalSummary": [
+    "**Fooed** the **bar** for **baz** years.",
+    "Worked **hard** for the **money**.",
+    "A **third thing**."
+  ],
   "experience": [],
   "buzzwords": {
     "Programming Languages": ["Java", "JavaScript/TypeScript", "Groovy"],
