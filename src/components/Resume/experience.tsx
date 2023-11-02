@@ -9,6 +9,7 @@ import type {
 } from '../../data/resume'
 import { hash, toKebabCase } from '../../helpers/string.helpers'
 import { YearData } from './resume.helpers'
+import styles from './resume.module.css'
 
 const yearRangeString = (data: YearData) => {
   let yearRange = String(data.beginYear)
@@ -24,8 +25,8 @@ const yearRangeString = (data: YearData) => {
 const Role = ({ role }: { role: IRole }) => {
   return (
     <div>
-      <h4>{role.roleName} ({yearRangeString(role)})</h4>
-      <ul>
+      <h4 className={styles.detailsHeader}>{role.roleName} ({yearRangeString(role)})</h4>
+      <ul className={styles.detailsList}>
         {role.roleSummary.map(e => <li key={hash(e)}>{e}</li>)}
       </ul>
     </div>
@@ -36,9 +37,9 @@ const FullTimeCompany = ({ company }: { company: FullTime }) => {
   const companyTestId = `company-${toKebabCase(company.companyName)}`
   return (
     <div data-testid={companyTestId}>
-      <h3>{company.companyName}, {company.city}, {company.state} ({yearRangeString(company)})</h3>
-      <p data-testid={`${companyTestId}-summary`}>{company.companySummary}</p>
-      <div data-testid={`${companyTestId}-roles`}>
+      <h3 className={styles.companyHeader}>{company.companyName}, {company.city}, {company.state} ({yearRangeString(company)})</h3>
+      <p className={styles.companySummary} data-testid={`${companyTestId}-summary`}>{company.companySummary}</p>
+      <div className={styles.details} data-testid={`${companyTestId}-roles`}>
         {company.roles.map((e, i) => <Role key={e.roleName + i} role={e} />)}
       </div>
     </div>
@@ -49,8 +50,8 @@ const Contract = ({ contract }: { contract: IContract }) => {
   return contract.roles.map(role => {
     return (
       <div key={hash(contract.companyName + role.roleName)}>
-        <h4>{`${contract.companyName}, ${contract.city}, ${contract.state} \u2013 ${role.roleName} (${yearRangeString(role)})`}</h4>
-        <ul>
+        <h4 className={styles.detailsHeader}>{`${contract.companyName}, ${contract.city}, ${contract.state} \u2013 ${role.roleName} (${yearRangeString(role)})`}</h4>
+        <ul className={styles.detailsList}>
           {role.roleSummary.map(e => <li key={hash(e)}>{e}</li>)}
         </ul>
       </div>
@@ -62,9 +63,9 @@ const ConsultingCompany = ({ company }: { company: Consulting }) => {
   const companyTestId = `company-${toKebabCase(company.companyName)}`
   return (
     <div data-testid={companyTestId}>
-      <h3>{company.companyName}, {company.city}, {company.state} ({yearRangeString(company)})</h3>
-      <p data-testid={`${companyTestId}-summary`}>{company.companySummary}</p>
-      <div data-testid={`${companyTestId}-contracts`}>
+      <h3 className={styles.companyHeader}>{company.companyName}, {company.city}, {company.state} ({yearRangeString(company)})</h3>
+      <p className={styles.companySummary} data-testid={`${companyTestId}-summary`}>{company.companySummary}</p>
+      <div className={styles.details} data-testid={`${companyTestId}-contracts`}>
         {company.contracts.map(e => <Contract key={e.companyName} contract={e} />)}
       </div>
     </div>
@@ -86,8 +87,8 @@ interface Props {
 
 const Experience = ({ experience }: Props) => {
   return (
-    <div data-testid='experience'>
-      <h2>Experience</h2>
+    <div className={styles.section} data-testid='experience'>
+      <h2 className={styles.sectionHeader}>Experience</h2>
       {experience.map(e => <Company key={e.companyName} company={e} />)}
     </div>
   )

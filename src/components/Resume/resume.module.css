@@ -1,0 +1,42 @@
+.resume {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.section {
+  width: 88%;
+}
+
+.sectionHeader {
+  color: #345a8a;
+}
+
+.companyHeader {
+  margin-bottom: 0;
+}
+
+.companySummary {
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.detailsHeader {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.detailsList {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.details {
+  margin-left: 1.5rem;
+}
+
+.buzzwords {
+  margin-bottom: 0;
+  margin-top: 0;
+}
