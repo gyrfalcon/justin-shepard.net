@@ -26,7 +26,7 @@ const App = () => {
     <>
       <RouterProvider router={router} />
       <Footer>
-        <a href="https://github.com/gyrfalcon/justin-shepard.net" target="_blank">GitHub</a>
+        <a href="https://github.com/gyrfalcon/justin-shepard.net" target="_blank" rel="noreferrer">GitHub</a>
       </Footer>
     </>
   )
