@@ -3,6 +3,7 @@ import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import Header from '../Header'
 import Resume from '../Resume'
+import Footer from '../Footer'
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,14 @@ const router = createBrowserRouter([
 ])
 
 const App = () => {
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Footer>
+        <a href="https://github.com/gyrfalcon/justin-shepard.net" target="_blank">GitHub</a>
+      </Footer>
+    </>
+  )
 }
 
 export default App
