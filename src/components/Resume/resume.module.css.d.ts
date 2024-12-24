@@ -1,14 +1,9 @@
-interface Styles {
-  buzzwords: string
-  companyHeader: string
-  companySummary: string
-  details: string
-  detailsHeader: string
-  detailsList: string
-  resume: string
-  section: string
-  sectionHeader: string
-}
-
-export const styles: Styles
-export default styles
+export const buzzwords: string
+export const companyHeader: string
+export const companySummary: string
+export const details: string
+export const detailsHeader: string
+export const detailsList: string
+export const resume: string
+export const section: string
+export const sectionHeader: string

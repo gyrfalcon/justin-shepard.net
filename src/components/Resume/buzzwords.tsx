@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import styles from './resume.module.css'
+import * as styles from './resume.module.css'
 
 interface CategoryProps {
   name: string

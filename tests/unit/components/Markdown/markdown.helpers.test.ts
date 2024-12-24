@@ -1,7 +1,7 @@
 import { parse } from '../../../../src/components/Markdown/markdown.helpers'
 
 
-describe('mardown parser', () => {
+describe('markdown parser', () => {
   test('returns empty for empty string', () => {
     const results = parse('')
 

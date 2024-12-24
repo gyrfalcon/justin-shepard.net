@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import styles from './footer.module.css'
+import * as styles from './footer.module.css'
 
 interface Props {
   children: React.ReactNode

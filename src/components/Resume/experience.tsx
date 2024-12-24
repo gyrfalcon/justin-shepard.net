@@ -9,7 +9,7 @@ import type {
 } from '../../data/resume'
 import { hash, toKebabCase } from '../../helpers/string.helpers'
 import { YearData } from './resume.helpers'
-import styles from './resume.module.css'
+import * as styles from './resume.module.css'
 
 const yearRangeString = (data: YearData) => {
   let yearRange = String(data.beginYear)

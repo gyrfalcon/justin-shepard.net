@@ -1,14 +1,14 @@
 import * as React from 'react'
 
-import { type Resume } from '../../data/resume'
+import { type Resume as ResumeData } from '../../data/resume'
 import { getResumeData } from './resume.hooks'
 import Buzzwords from './buzzwords'
 import Markdown from '../Markdown'
 import Experience from './experience'
-import styles from './resume.module.css'
+import * as styles from './resume.module.css'
 
 const Resume = () => {
-  const [ resume, setResume ] = React.useState<Resume | undefined>()
+  const [ resume, setResume ] = React.useState<ResumeData | undefined>()
 
   getResumeData(setResume)
 
