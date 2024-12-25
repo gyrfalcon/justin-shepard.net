@@ -1,5 +1,5 @@
 export interface YearData {
-  beginYear: number,
+  beginYear: number
   endYear?: number
 }
 

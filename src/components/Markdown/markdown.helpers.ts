@@ -13,10 +13,7 @@ interface StrongToken {
   value: string | EmphasisToken
 }
 
-export type Token =
-  | PlainToken
-  | EmphasisToken
-  | StrongToken
+export type Token = PlainToken | EmphasisToken | StrongToken
 
 export const parse = (text: string): Token[] => {
   let curToken: Token | undefined
@@ -36,8 +33,7 @@ export const parse = (text: string): Token[] => {
           tokens.push({ type: 'strong', value: curToken })
         }
         i += 2
-      }
-      else if (text[i + 1] === '*') {
+      } else if (text[i + 1] === '*') {
         if (curToken?.type === 'strong') {
           tokens.push(curToken)
           curToken = undefined

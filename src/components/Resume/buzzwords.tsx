@@ -7,8 +7,12 @@ interface CategoryProps {
   words: string[]
 }
 
-const Category = ({name, words}: CategoryProps) => {
-  return <p className={styles.buzzwords}><strong>{name}:</strong> {words.join(', ')}</p>
+const Category = ({ name, words }: CategoryProps) => {
+  return (
+    <p className={styles.buzzwords}>
+      <strong>{name}:</strong> {words.join(', ')}
+    </p>
+  )
 }
 
 interface BuzzwordProps {
@@ -19,7 +23,9 @@ const Buzzwords = ({ buzzwords }: BuzzwordProps) => {
   return (
     <div className={styles.section} data-testid='buzzwords'>
       <h2 className={styles.sectionHeader}>Buzzwords</h2>
-      {Object.keys(buzzwords).map(e => <Category key={e} name={e} words={buzzwords[e]} />)}
+      {Object.keys(buzzwords).map((e) => (
+        <Category key={e} name={e} words={buzzwords[e]} />
+      ))}
     </div>
   )
 }

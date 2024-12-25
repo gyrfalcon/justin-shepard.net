@@ -12,7 +12,9 @@ const toReact = (token: Token) => {
       return <em key={hash(token.type + token.value)}>{token.value}</em>
     case 'strong':
       if (typeof token.value === 'string') {
-        return <strong key={hash(token.type + token.value)}>{token.value}</strong>
+        return (
+          <strong key={hash(token.type + token.value)}>{token.value}</strong>
+        )
       } else {
         return <strong>{toReact(token.value)}</strong>
       }

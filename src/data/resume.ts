@@ -45,7 +45,15 @@ const fullTimeSchema: JSONSchemaType<FullTime> = {
     endYear: { type: 'integer', nullable: true },
     roles: { type: 'array', items: roleSchema },
   },
-  required: ['beginYear', 'city', 'companyName', 'companySummary', 'roles', 'state', 'type'],
+  required: [
+    'beginYear',
+    'city',
+    'companyName',
+    'companySummary',
+    'roles',
+    'state',
+    'type',
+  ],
   additionalProperties: false,
 }
 
@@ -85,7 +93,15 @@ const consultingSchema: JSONSchemaType<Consulting> = {
     endYear: { type: 'integer', nullable: true },
     contracts: { type: 'array', items: contractSchmea },
   },
-  required: ['beginYear', 'city', 'companyName', 'companySummary', 'contracts', 'state', 'type'],
+  required: [
+    'beginYear',
+    'city',
+    'companyName',
+    'companySummary',
+    'contracts',
+    'state',
+    'type',
+  ],
   additionalProperties: false,
 }
 
@@ -114,7 +130,11 @@ export const schema: JSONSchemaType<Resume> = {
         oneOf: [fullTimeSchema, consultingSchema],
       },
     },
-    buzzwords: { type: 'object', required: [], additionalProperties: { type: 'array', items: { type: 'string' } } },
+    buzzwords: {
+      type: 'object',
+      required: [],
+      additionalProperties: { type: 'array', items: { type: 'string' } },
+    },
   },
   required: ['buzzwords', 'email', 'experience', 'name', 'professionalSummary'],
   additionalProperties: false,
