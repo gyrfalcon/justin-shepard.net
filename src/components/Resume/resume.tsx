@@ -1,10 +1,12 @@
 import * as React from 'react'
 
+import Markdown from '../Markdown'
+import Spinner from '../Spinner'
+import Buzzwords from './buzzwords'
+import Experience from './experience'
+
 import { type Resume as ResumeData } from '../../data/resume'
 import { getResumeData } from './resume.hooks'
-import Buzzwords from './buzzwords'
-import Markdown from '../Markdown'
-import Experience from './experience'
 import * as styles from './resume.module.css'
 
 const Resume = () => {
@@ -31,7 +33,7 @@ const Resume = () => {
       </div>
     )
   } else {
-    return <p>Loading...</p>
+    return <Spinner />
   }
 }
 

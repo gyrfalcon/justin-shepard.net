@@ -1,9 +1,11 @@
-import * as React from 'react'
+import React, { Suspense } from 'react'
 import { Link, RouterProvider, createBrowserRouter } from 'react-router'
 
 import Header from '../Header'
-import Resume from '../Resume'
 import Footer from '../Footer'
+import Spinner from '../Spinner'
+
+const Resume = React.lazy(() => import('../Resume'))
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/resume',
-    element: <Resume />,
+    element: <Suspense fallback={<Spinner />}>
+      <Resume />
+    </Suspense>,
   },
 ])
 

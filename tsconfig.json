@@ -3,6 +3,7 @@
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "esModuleInterop": true
   }
 }
