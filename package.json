@@ -8,8 +8,8 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "build": "parcel build",
-    "ci:lint": "eslint --format junit --output-file reports/eslint/eslint.xml --ext .ts,.tsx src tests",
-    "lint": "eslint --ext .ts,.tsx src tests",
+    "ci:lint": "eslint --format junit --output-file reports/eslint/eslint.xml",
+    "lint": "eslint",
     "start": "parcel",
     "test:acceptance": "playwright test",
     "test": "jest --coverage"
@@ -19,8 +19,6 @@
     "@types/jest": "29.5.14",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
-    "@typescript-eslint/eslint-plugin": "8.18.2",
-    "@typescript-eslint/parser": "8.18.2",
     "buffer": "6.0.3",
     "eslint": "9.17.0",
     "eslint-config-prettier": "9.1.0",
@@ -38,45 +36,16 @@
   "dependencies": {
     "ajv": "8.17.1",
     "axios": "1.7.9",
+    "eslint-formatter-junit": "8.40.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-router": "7.1.1"
+    "react-router": "7.1.1",
+    "typescript-eslint": "8.18.2"
   },
   "prettier": {
     "jsxSingleQuote": true,
     "semi": false,
     "singleQuote": true,
     "trailingComma": "all"
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "prettier"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": "latest"
-    },
-    "plugins": [
-      "react",
-      "@typescript-eslint"
-    ],
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    },
-    "ignorePatterns": [
-      "webpack.config.js",
-      "playwright.config.js"
-    ]
   }
 }
