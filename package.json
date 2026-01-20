@@ -17,8 +17,8 @@
   "devDependencies": {
     "@playwright/test": "1.57.0",
     "@types/jest": "30.0.0",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.2.3",
     "buffer": "6.0.3",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
@@ -31,7 +31,7 @@
     "serve-static": "2.2.1",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
-    "typescript": "5.7.2",
+    "typescript": "5.9.3",
     "typescript-eslint": "8.53.1",
     "eslint-formatter-junit": "9.0.1"
   },
