@@ -20,7 +20,7 @@ jobs:
   test:
     working_directory: ~/justin-shepard.net
     docker:
-      - image: mcr.microsoft.com/playwright:v1.49.1-jammy
+      - image: mcr.microsoft.com/playwright:v1.57.0-jammy
     steps:
       - checkout
       - node/install-packages

@@ -1,10 +1,11 @@
 import react from 'eslint-plugin-react'
 import typescriptEslint from 'typescript-eslint'
+import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import js from '@eslint/js'
 
-export default typescriptEslint.config([
+export default defineConfig([
   {
     ignores: ['**/playwright.config.js', 'dist/*', '.proxyrc.js'],
   },
