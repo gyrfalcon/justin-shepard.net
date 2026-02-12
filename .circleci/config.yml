@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@7.0.0
-  aws: circleci/aws-cli@5.1.2
+  node: circleci/node@7.2.1
+  aws: circleci/aws-cli@5.4.1
 
 jobs:
   build:
@@ -16,7 +16,8 @@ jobs:
           command: npm run build
       - persist_to_workspace:
           root: .
-          paths: dist
+          paths:
+            - dist
   test:
     working_directory: ~/justin-shepard.net
     docker:
