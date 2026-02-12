@@ -15,9 +15,9 @@
     "test": "jest --coverage"
   },
   "devDependencies": {
-    "@playwright/test": "1.58.0",
+    "@playwright/test": "1.58.2",
     "@types/jest": "30.0.0",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "buffer": "6.0.3",
     "eslint": "9.39.2",
@@ -25,7 +25,7 @@
     "eslint-plugin-react": "7.37.5",
     "jest": "30.2.0",
     "jest-junit": "16.0.0",
-    "parcel": "2.16.3",
+    "parcel": "2.16.4",
     "prettier": "3.8.1",
     "process": "0.11.10",
     "serve-static": "2.2.1",
@@ -37,9 +37,9 @@
   },
   "dependencies": {
     "ajv": "8.17.1",
-    "axios": "1.13.2",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "axios": "1.13.5",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-router": "7.13.0"
   },
   "prettier": {
