@@ -4,6 +4,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "isolatedModules": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["jest"]
   }
 }
